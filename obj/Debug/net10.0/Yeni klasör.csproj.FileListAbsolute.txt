@@ -1,0 +1,14 @@
+C:\Users\yasin\Desktop\Yeni klasör\bin\Debug\net10.0\Yeni klasör.exe
+C:\Users\yasin\Desktop\Yeni klasör\bin\Debug\net10.0\Yeni klasör.deps.json
+C:\Users\yasin\Desktop\Yeni klasör\bin\Debug\net10.0\Yeni klasör.runtimeconfig.json
+C:\Users\yasin\Desktop\Yeni klasör\bin\Debug\net10.0\Yeni klasör.dll
+C:\Users\yasin\Desktop\Yeni klasör\bin\Debug\net10.0\Yeni klasör.pdb
+C:\Users\yasin\Desktop\Yeni klasör\obj\Debug\net10.0\Yeni klasör.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yasin\Desktop\Yeni klasör\obj\Debug\net10.0\Yeni klasör.AssemblyInfoInputs.cache
+C:\Users\yasin\Desktop\Yeni klasör\obj\Debug\net10.0\Yeni klasör.AssemblyInfo.cs
+C:\Users\yasin\Desktop\Yeni klasör\obj\Debug\net10.0\Yeni klasör.csproj.CoreCompileInputs.cache
+C:\Users\yasin\Desktop\Yeni klasör\obj\Debug\net10.0\Yeni klasör.dll
+C:\Users\yasin\Desktop\Yeni klasör\obj\Debug\net10.0\refint\Yeni klasör.dll
+C:\Users\yasin\Desktop\Yeni klasör\obj\Debug\net10.0\Yeni klasör.pdb
+C:\Users\yasin\Desktop\Yeni klasör\obj\Debug\net10.0\Yeni klasör.genruntimeconfig.cache
+C:\Users\yasin\Desktop\Yeni klasör\obj\Debug\net10.0\ref\Yeni klasör.dll
