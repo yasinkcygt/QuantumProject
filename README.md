@@ -108,11 +108,3 @@ QuantumProject/
 │
 └── README.md
 ```
-
-## Katkıda Bulunma
-
-Katkılar memnuniyetle karşılanır! Lütfen bir çekme isteği göndermekten çekinmeyin.
-
-## Lisans
-
-Bu proje MIT Lisansı altında lisanslanmıştır.
