@@ -1,16 +1,17 @@
 # QuantumProjesi
 
-Kuantum kavramlarını keşfeden çok dilli bir proje.
-
 ## Açıklama
 
-Bu proje, çeşitli programlama dillerinde kuantum algoritmaları ve kavramlarının uygulamalarını sunar. Kuantum hesaplama fikirleriyle denemeler yapmak için bir öğrenme kaynağı ve oyun alanı olarak tasarlanmıştır.
+Bu proje, farklı programlama dillerinde (C#, Java, JavaScript, Python) Nesne Yönelimli Programlama (OOP) prensiplerini kullanarak hazırlanmış bir 'Kuantum Ambarı' simülasyonudur. Proje, `KuantumNesnesi`, `AntiMadde`, `KaranlikMadde` gibi soyut kavramları sınıflar aracılığıyla modelleryerek bir konsol uygulaması üzerinden yönetilmesini sağlar. Temel amaç, aynı OOP konseptlerinin (kalıtım, polimorfizm, arayüzler, istisna yönetimi) farklı dillerdeki uygulamalarını karşılaştırmaktır.
 
 ## Özellikler
 
-*   C#, Java, JavaScript ve Python'da uygulamalar.
-*   [Buraya belirli bir özellik ekleyin, örn. "Kuantum Fourier Dönüşümü uygulaması."]
-*   [Başka bir belirli özellik ekleyin, örn. "Grover arama algoritması örneği."]
+- **Çok Dilli Uygulama:** C#, Java, JavaScript ve Python dillerinde aynı projenin paralel olarak geliştirilmesi.
+- **Nesne Yönelimli Modelleme:** `AntiMadde`, `KaranlikMadde` ve `VeriPaketi` gibi kavramların kalıtım yoluyla `KuantumNesnesi` sınıfından türetilmesi.
+- **Etkileşimli Konsol Arayüzü:** 'Kuantum Ambarı'nı yönetmek için menü tabanlı bir kontrol paneli.
+- **Polimorfizm:** Her nesne türü için farklı davranışlar sergileyen `AnalizEt()` metodu.
+- **Arayüz (Interface) Kullanımı:** `IKritik` arayüzü ile 'Acil Durum Soğutması' gibi özel yeteneklerin belirli nesnelere kazandırılması.
+- **Özel İstisna Yönetimi (Exception Handling):** `KuantumCokusuException` ile program akışında kritik hata durumlarının yönetilmesi.
 
 ## Başlarken
 
@@ -23,7 +24,6 @@ Bu proje, çeşitli programlama dillerinde kuantum algoritmaları ve kavramları
     *   `cd java`
     *   `cd javascript`
     *   `cd python`
-3.  O dizindeki `README.md` dosyasındaki talimatları izleyin (varsa).
 
 ## Kullanım
 
@@ -44,10 +44,9 @@ Java kodunu derlemek ve çalıştırmak için, `java` dizinine gidin ve `javac` 
 
 ```bash
 cd java
-javac Program.java
+javac *.java
 java Program
 ```
-*(Not: Tüm .java dosyalarını derlemeniz gerekebilir: `javac *.java`)*
 
 ### JavaScript
 
@@ -66,8 +65,6 @@ Python dosyasını çalıştırmak için, `python` dizinine gidin ve `python` yo
 cd python
 python main.py
 ```
-
-Kullanım detayları için lütfen ilgili dizinlere bakın.
 
 ## Klasör Yapısı
 
@@ -111,3 +108,11 @@ QuantumProject/
 │
 └── README.md
 ```
+
+## Katkıda Bulunma
+
+Katkılar memnuniyetle karşılanır! Lütfen bir çekme isteği göndermekten çekinmeyin.
+
+## Lisans
+
+Bu proje MIT Lisansı altında lisanslanmıştır.
