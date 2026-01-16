@@ -2,36 +2,38 @@
 
 ## Açıklama
 
-Bu proje, farklı programlama dillerinde (C#, Java, JavaScript, Python) Nesne Yönelimli Programlama (OOP) prensiplerini kullanarak hazırlanmış bir 'Kuantum Ambarı' simülasyonudur. Proje, `KuantumNesnesi`, `AntiMadde`, `KaranlikMadde` gibi soyut kavramları sınıflar aracılığıyla modelleryerek bir konsol uygulaması üzerinden yönetilmesini sağlar. Temel amaç, aynı OOP konseptlerinin (kalıtım, polimorfizm, arayüzler, istisna yönetimi) farklı dillerdeki uygulamalarını karşılaştırmaktır.
+This project is a “Quantum Warehouse” simulation developed using Object-Oriented Programming (OOP) principles across different programming languages (C#, Java, JavaScript, Python). The project models abstract concepts such as `QuantumObject`, `AntiMatter`, and `DarkMatter` through classes and manages them via a console-based application.
+
+The main goal is to compare the implementations of the same OOP concepts (inheritance, polymorphism, interfaces, and exception handling) across different programming languages.
 
 ## Özellikler
 
-- **Çok Dilli Uygulama:** C#, Java, JavaScript ve Python dillerinde aynı projenin paralel olarak geliştirilmesi.
-- **Nesne Yönelimli Modelleme:** `AntiMadde`, `KaranlikMadde` ve `VeriPaketi` gibi kavramların kalıtım yoluyla `KuantumNesnesi` sınıfından türetilmesi.
-- **Etkileşimli Konsol Arayüzü:** 'Kuantum Ambarı'nı yönetmek için menü tabanlı bir kontrol paneli.
-- **Polimorfizm:** Her nesne türü için farklı davranışlar sergileyen `AnalizEt()` metodu.
-- **Arayüz (Interface) Kullanımı:** `IKritik` arayüzü ile 'Acil Durum Soğutması' gibi özel yeteneklerin belirli nesnelere kazandırılması.
-- **Özel İstisna Yönetimi (Exception Handling):** `KuantumCokusuException` ile program akışında kritik hata durumlarının yönetilmesi.
+- **Multi-Language Application:** C#, Java, JavaScript ve Python dillerinde aynı projenin paralel olarak geliştirilmesi.
+- **Object-Oriented Modeling:** Concepts such as `AntiMatter`, `DarkMatter` and `DataPacket` are derived from the `QuantumObject` base class through inheritance.
+- **Interactive Console Interface:** A menu-driven control panel for managing the “Quantum Warehouse”.
+- **Polymorphism:** The `Analyze()` method exhibits different behaviors for each object type.
+- **Interface Usage:** The `ICritical` interface provides special abilities such as Emergency Cooling to specific objects.
+- **Custom Exception Handling:** Critical error states in program flow are handled using `QuantumCollapseException`.
 
-## Başlarken
+## Getting Started
 
-1.  Depoyu klonlayın:
+1.  Clone the repository:
     ```bash
     git clone https://github.com/your-kullaniciadi/QuantumProject.git
     ```
-2.  İlgilendiğiniz dile özgü dizine gidin:
+2.  Navigate to the directory of the language you are interested in:
     *   `cd csharp`
     *   `cd java`
     *   `cd javascript`
     *   `cd python`
 
-## Kullanım
+## Usage
 
-Her dil dizini kendi örnek ve talimat setini içerir. Aşağıda her bir dil için genel çalıştırma yönergeleri bulunmaktadır:
+Each language directory contains its own set of examples and instructions. Below are the general execution guidelines for each language:
 
 ### C#
 
-C# projesini çalıştırmak için, `csharp` dizinine gidin ve .NET CLI'yı kullanın:
+To run the C# project, navigate to the `csharp` directory and use the .NET CLI:
 
 ```bash
 cd csharp
@@ -40,7 +42,7 @@ dotnet run
 
 ### Java
 
-Java kodunu derlemek ve çalıştırmak için, `java` dizinine gidin ve `javac` ile `java` komutlarını kullanın:
+To compile and run the Java project, navigate to the `java` directory and use the `javac` and `java` commands:
 
 ```bash
 cd java
@@ -50,60 +52,60 @@ java Program
 
 ### JavaScript
 
-JavaScript dosyasını Node.js ile çalıştırmak için, `javascript` dizinine gidin ve `node` komutunu kullanın:
+To run the JavaScript file using Node.js, navigate to the `javascript` directory and use the `node` command:
 
 ```bash
 cd javascript
-node Program.js
+node Main.js
 ```
 
 ### Python
 
-Python dosyasını çalıştırmak için, `python` dizinine gidin ve `python` yorumlayıcısını kullanın:
+To run the Python file, navigate to the `python` directory and use the `python` interpreter:
 
 ```bash
 cd python
 python main.py
 ```
 
-## Klasör Yapısı
+## Project Structure
 
 ```
 QuantumProject/
 │
 ├── csharp/
-│     - AntiMadde.cs
-│     - IKritik.cs
-│     - KaranlikMadde.cs
-│     - KuantumCokusuException.cs
-│     - KuantumNesnesi.cs
-│     - VeriPaketi.cs
+│     - AntiMatter.cs
+│     - ICritical.cs
+│     - DarkMatter.cs
+│     - QuantumCollapseException.cs
+│     - QuantumObject.cs
+│     - DataPacket.cs
 │     - Program.cs
 │
 ├── java/
-│     - AntiMadde.java
-│     - IKritik.java
-│     - KaranlikMadde.java
-│     - KuantumCokusException.java
-│     - KuantumNesnesi.java
-│     - VeriPaketi.java
-│     - Program.java
+│     - AntiMatter.java
+│     - ICritical.java
+│     - DarkMatter.java
+│     - QuantumCollapseException.java
+│     - QuantumObject.java
+│     - DataPacket.java
+│     - Main.java
 │
 ├── javascript/
-│     - AntiMadde.js
-│     - KaranlikMadde.js
-│     - KuantumCokusuException.js
-│     - KuantumNesnesi.js
-│     - VeriPaketi.js
-│     - Program.js
+│     - AntiMatter.js
+│     - DarkMatter.js
+│     - QuantumCollapseException.js
+│     - QuantumObject.js
+│     - DataPacket.js
+│     - Main.js
 │
 ├── python/
-│     - AntiMadde.py
-│     - IKritik.py
-│     - KaranlikMadde.py
-│     - KuantumCokusException.py
-│     - KuantumNesnesi.py
-│     - VeriPaketi.py
+│     - AntiMatter.py
+│     - ICritical.py
+│     - DarkMatter.py
+│     - QuantumCollapseException.py
+│     - QuantumObject.py
+│     - DataPacket.py
 │     - main.py
 │
 └── README.md

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NDP_Odev4
 {
@@ -10,128 +8,123 @@ namespace NDP_Odev4
     {
         static void Main(string[] args)
         {
-            int secim;
-            List<KuantumNesnesi> kNList = new List<KuantumNesnesi>();
-            
+            List<QuantumObject> storageList = new List<QuantumObject>();
 
             while (true)
             {
-                Console.WriteLine();
-                Console.WriteLine("KUANTUM AMBARI KONTROL PANELİ");
-                Console.WriteLine("1.Yeni Nesne Ekle (Rastgele Veri/Karanlık Madde/Anti Madde üretir)");
-                Console.WriteLine("2.Tüm Envanteri Listele (Durum Raporu)");
-                Console.WriteLine("3.Nesneyi Analiz Et (ID isteyerek)");
-                Console.WriteLine("4.Acil Durum Soğutması Yap (Sadece IKritik olanlar için!)");
-                Console.WriteLine("5.Çıkış");
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.Write("Seçiminiz:");
-                secim = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("\n============================================");
+                Console.WriteLine("      QUANTUM STORAGE CONTROL PANEL");
+                Console.WriteLine("============================================");
+                Console.WriteLine("1. Add New Object (Random Generation)");
+                Console.WriteLine("2. List Inventory (Status Report)");
+                Console.WriteLine("3. Analyze Object (Decreases Stability)");
+                Console.WriteLine("4. Emergency Cooling (Critical Objects Only)");
+                Console.WriteLine("5. Shutdown System");
+                Console.Write("\nOperation Selection: ");
 
-
-                if (secim == 5)
+                if (!int.TryParse(Console.ReadLine(), out int choice))
                 {
-                    break;
+                    Console.WriteLine("Error: Please enter a valid numeric command.");
+                    continue;
                 }
-                else if (secim == 1)
+
+                if (choice == 5) break;
+
+                switch (choice)
                 {
-                    Random rn = new Random();
-                    int sonuc = rn.Next(0,3);
-
-                    Console.Write("nesne idsini girin...\t");
-                    string id = Console.ReadLine();
-                    Console.Write("nesne stabilitesini girin...\t");
-                    int stabilite = int.Parse(Console.ReadLine());
-                    Console.WriteLine("nesne tehlike seviyesini girin...\t");
-                    int tSeviye = int.Parse(Console.ReadLine());
-
-                    KuantumNesnesi kN = null;
-
-                    switch (sonuc)
-                    {
-                        //Veri Paketi
-                        case 0:
-                            kN = new VeriPaketi(id, stabilite, tSeviye);
-                            break;
-                        
-                        //Karanlık Madde
-                        case 1:
-                            kN = new KaranlikMadde(id, stabilite, tSeviye);
-                            break;
-
-                        //Anti Madde
-                        case 2:
-                            kN = new AntiMadde(id, stabilite, tSeviye);
-                            break;
-                    }
-                    if((kN.Stabilite > 0 && kN.Stabilite < 100) && (kN.TehlikeSeviyesi >= 1 && kN.TehlikeSeviyesi <= 10))
-                    {
-                        kNList.Add(kN);
-                        Console.WriteLine("Basariyla eklendi...");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Hatalı giriş! Değerleri kontrol ediniz.");
-                    }
-                    
+                    case 1:
+                        AddNewObject(storageList);
+                        break;
+                    case 2:
+                        ShowInventory(storageList);
+                        break;
+                    case 3:
+                        AnalyzeObject(storageList);
+                        break;
+                    case 4:
+                        PerformCooling(storageList);
+                        break;
+                    default:
+                        Console.WriteLine("Unknown command.");
+                        break;
                 }
-                else if (secim == 2)
-                {
-                    if (kNList.Count == 0)
-                    {
-                        Console.WriteLine("\nDepo şu an boş, nesne yok.Lütfen nesne ekleyin...");
-                    }
-                    else
-                    {
-                        // Senin yazdığın doğru kod burada çalışsın
-                        foreach (var s in kNList)
-                        {
-                            Console.WriteLine(s.DurumBilgisi());
-                        }
-                    }
-                }
-                else if (secim == 4)
-                {
-                    Console.Write("Nesne id'si girin: ");
-                    string kullaniciID = Console.ReadLine();
-                    var secilenID = kNList.FirstOrDefault(x => x.NesneID == kullaniciID);
-
-                    if (secilenID is IKritik)
-                    {
-                        //secilenID aslında KuantumNesnesi sınıfı ve burada IKritik interface i yok o yüzden AcilDurumSogutmasi() yok!!!!!!!
-                        ((IKritik)secilenID).AcilDurumSogutmasi();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Bu nesne soğutulamaz...");
-                    }
-                }
-                else if (secim == 3)
-                {
-                    try
-                    {
-                        Console.Write("Lütfen bir NesneID giriniz...\t");
-                        string kullanilanID = Console.ReadLine();
-                        var secilenID = kNList.FirstOrDefault(x => x.NesneID == kullanilanID);
-
-                        Console.WriteLine($"Analiz edilmeden önce: {secilenID.Stabilite}");
-                        secilenID.AnalizEt();
-                        Console.WriteLine($"Analiz edildikten sonra: {secilenID.Stabilite}");
-
-                    }
-                    catch (KuantumCokusuException ex)
-                    {
-                        Console.WriteLine("\nSİSTEM ÇÖKTÜ! TAHLİYE BAŞLATILIYOR...");
-                        Console.WriteLine(ex.Message);
-                        return;
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                }
-                else { continue; }
             }
+        }
+
+        static void AddNewObject(List<QuantumObject> list)
+        {
+            Random rn = new Random();
+            int typeIndex = rn.Next(0, 3);
+
+            Console.Write("Enter Object ID: ");
+            string id = Console.ReadLine() ?? "Unknown";
+            if (string.IsNullOrWhiteSpace(id)) { Console.WriteLine("ID cannot be empty."); return; }
+
+            Console.Write("Enter Initial Stability (1-99): ");
+            if (!int.TryParse(Console.ReadLine(), out int stability)) stability = 0;
+
+            Console.Write("Enter Danger Level (1-10): ");
+            if (!int.TryParse(Console.ReadLine(), out int danger)) danger = 0;
+
+            QuantumObject? newObj = typeIndex switch
+            {
+                0 => new DataPacket(id, stability, danger),
+                1 => new DarkMatter(id, stability, danger),
+                2 => new AntiMatter(id, stability, danger),
+                _ => null
+            };
+
+            // Double-check encapsulation constraints before adding to list
+            if (newObj != null && newObj.Stability > 0 && newObj.DangerLevel >= 1)
+            {
+                list.Add(newObj);
+                Console.WriteLine($"Success: {newObj.GetType().Name} added to storage.");
+            }
+            else
+            {
+                Console.WriteLine("Failure: Invalid parameters detected. Object rejected.");
+            }
+        }
+
+        static void ShowInventory(List<QuantumObject> list)
+        {
+            if (list.Count == 0) Console.WriteLine("\nStorage empty.");
+            else list.ForEach(o => Console.WriteLine(o.GetStatusInfo()));
+        }
+
+        static void AnalyzeObject(List<QuantumObject> list)
+        {
+            Console.Write("Enter ID to Analyze: ");
+            string searchID = Console.ReadLine() ?? "";
+            var obj = list.FirstOrDefault(o => o.ObjectID == searchID);
+
+            if (obj != null)
+            {
+                try
+                {
+                    Console.WriteLine($"Pre-Analysis Stability: {obj.Stability}%");
+                    obj.Analyze();
+                    Console.WriteLine($"Post-Analysis Stability: {obj.Stability}%");
+                }
+                catch (QuantumCollapseException ex)
+                {
+                    Console.WriteLine("\n!!! CRITICAL SYSTEM COLLAPSE !!!");
+                    Console.WriteLine(ex.Message);
+                    Environment.Exit(0); // Terminal failure
+                }
+            }
+            else Console.WriteLine("Object ID not found.");
+        }
+
+        static void PerformCooling(List<QuantumObject> list)
+        {
+            Console.Write("Enter ID for Cooling: ");
+            string searchID = Console.ReadLine() ?? "";
+            var obj = list.FirstOrDefault(o => o.ObjectID == searchID);
+
+            if (obj == null) Console.WriteLine("Object ID not found.");
+            else if (obj is ICritical criticalObj) criticalObj.EmergencyCooling();
+            else Console.WriteLine("Denied: This object type is thermally stable and cannot be cooled.");
         }
     }
 }
