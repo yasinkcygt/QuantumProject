@@ -1,12 +1,12 @@
-# QuantumProjesi
+# QuantumProject
 
-## Açıklama
+## Description
 
 This project is a “Quantum Warehouse” simulation developed using Object-Oriented Programming (OOP) principles across different programming languages (C#, Java, JavaScript, Python). The project models abstract concepts such as `QuantumObject`, `AntiMatter`, and `DarkMatter` through classes and manages them via a console-based application.
 
 The main goal is to compare the implementations of the same OOP concepts (inheritance, polymorphism, interfaces, and exception handling) across different programming languages.
 
-## Özellikler
+## Features
 
 - **Multi-Language Application:** C#, Java, JavaScript ve Python dillerinde aynı projenin paralel olarak geliştirilmesi.
 - **Object-Oriented Modeling:** Concepts such as `AntiMatter`, `DarkMatter` and `DataPacket` are derived from the `QuantumObject` base class through inheritance.
